@@ -5,6 +5,7 @@ import executeMany
 import executeManyFromIterator
 import executeBatch
 import executeBatchFromIterator
+import executeBatchFromIteratorWithPageSize
 
 print(
     "Starting to fetch the data in bulk to remove the network latency in our \
@@ -25,3 +26,16 @@ executeManyFromIterator.insert_executemany_iterator(connection, beers)
 executeBatch.insert_execute_batch(connection, beers)
 
 executeBatchFromIterator.insert_execute_batch_iterator(connection, beers)
+
+executeBatchFromIteratorWithPageSize.insert_execute_batch_iterator(
+    connection, iter(beers), page_size=1
+)
+executeBatchFromIteratorWithPageSize.insert_execute_batch_iterator(
+    connection, iter(beers), page_size=100
+)
+executeBatchFromIteratorWithPageSize.insert_execute_batch_iterator(
+    connection, iter(beers), page_size=1000
+)
+executeBatchFromIteratorWithPageSize.insert_execute_batch_iterator(
+    connection, iter(beers), page_size=10000
+)
