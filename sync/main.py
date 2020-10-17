@@ -71,3 +71,90 @@ pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=1024)
 pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=8192)
 pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=16384)
 pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=65536)
+
+"""
+insert_one_by_one()
+Time   4.899
+Memory 0.08984375
+
+insert_executemany()
+Time   3.973
+Memory 2.73046875
+
+insert_executemany_iterator()
+Time   4.157
+Memory 0.0
+
+insert_execute_batch()
+Time   2.436
+Memory 2.25
+
+insert_execute_batch_iterator()
+Time   2.421
+Memory 0.0
+
+insert_execute_batch_iterator(page_size=1)
+Time   4.183
+Memory 0.0
+
+insert_execute_batch_iterator(page_size=100)
+Time   2.423
+Memory 0.0
+
+insert_execute_batch_iterator(page_size=1000)
+Time   2.458
+Memory 0.0
+
+insert_execute_batch_iterator(page_size=10000)
+Time   2.454
+Memory 0.0
+
+insert_execute_values()
+Time   1.357
+Memory 5.0
+
+insert_execute_values_iterator()
+Time   1.206
+Memory 0.0
+
+insert_execute_values_iterator(page_size=1)
+Time   4.11
+Memory 0.0
+
+insert_execute_values_iterator(page_size=100)
+Time   1.375
+Memory 0.0
+
+insert_execute_values_iterator(page_size=1000)
+Time   1.347
+Memory 0.0
+
+insert_execute_values_iterator(page_size=10000)
+Time   1.411
+Memory 0.0
+
+copy_stringio()
+Time   0.4516
+Memory 100.39453125
+
+copy_string_iterator()
+Time   0.3283
+Memory 0.0
+
+copy_string_iterator(size=1024)
+Time   0.3432
+Memory 0.0
+
+copy_string_iterator(size=8192)
+Time   0.3152
+Memory 0.0
+
+copy_string_iterator(size=16384)
+Time   0.302
+Memory 0.0
+
+copy_string_iterator(size=65536)
+Time   0.3121
+Memory 0.0
+
+"""
