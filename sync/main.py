@@ -4,6 +4,7 @@ import oneInsertRowsOneByOne
 import executeMany
 import executeManyFromIterator
 import executeBatch
+import executeBatchFromIterator
 
 print(
     "Starting to fetch the data in bulk to remove the network latency in our \
@@ -22,3 +23,5 @@ executeMany.insert_executemany(connection, beers)
 executeManyFromIterator.insert_executemany_iterator(connection, beers)
 
 executeBatch.insert_execute_batch(connection, beers)
+
+executeBatchFromIterator.insert_execute_batch_iterator(connection, beers)
