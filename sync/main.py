@@ -10,6 +10,8 @@ import executeValues
 import executeValuesFromIterator
 import executeValuesFromIteratorWithPageSize
 import pgcopy
+import pgcopy_csvLike
+import pgcopyIterWithBuffer
 
 print(
     "Starting to fetch the data in bulk to remove the network latency in our \
@@ -62,3 +64,10 @@ executeValuesFromIteratorWithPageSize.insert_execute_values_iterator(
 )
 
 pgcopy.copy_stringio(connection, beers)
+
+pgcopy_csvLike.copy_string_iterator(connection, beers)
+
+pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=1024)
+pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=8192)
+pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=16384)
+pgcopyIterWithBuffer.copy_string_iterator(connection, iter(beers), size=65536)
