@@ -7,6 +7,8 @@ import executeBatch
 import executeBatchFromIterator
 import executeBatchFromIteratorWithPageSize
 import executeValues
+import executeValuesFromIterator
+import executeValuesFromIteratorWithPageSize
 
 
 print(
@@ -43,3 +45,18 @@ executeBatchFromIteratorWithPageSize.insert_execute_batch_iterator(
 )
 
 executeValues.insert_execute_values(connection, beers)
+
+executeValuesFromIterator.insert_execute_values_iterator(connection, beers)
+
+executeValuesFromIteratorWithPageSize.insert_execute_values_iterator(
+    connection, iter(beers), page_size=1
+)
+executeValuesFromIteratorWithPageSize.insert_execute_values_iterator(
+    connection, iter(beers), page_size=100
+)
+executeValuesFromIteratorWithPageSize.insert_execute_values_iterator(
+    connection, iter(beers), page_size=1000
+)
+executeValuesFromIteratorWithPageSize.insert_execute_values_iterator(
+    connection, iter(beers), page_size=10000
+)
