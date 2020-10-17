@@ -3,6 +3,7 @@ from fetchdata import iter_beers_from_api
 import oneInsertRowsOneByOne
 import executeMany
 import executeManyFromIterator
+import executeBatch
 
 print(
     "Starting to fetch the data in bulk to remove the network latency in our \
@@ -19,3 +20,5 @@ oneInsertRowsOneByOne.insert_one_by_one(connection, beers)
 executeMany.insert_executemany(connection, beers)
 
 executeManyFromIterator.insert_executemany_iterator(connection, beers)
+
+executeBatch.insert_execute_batch(connection, beers)
